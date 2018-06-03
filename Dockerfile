@@ -1,7 +1,8 @@
 #注:低版本gcc镜像可以省下一些空间,但是性能跟依赖未测试. 后续也可自行精简
-FROM gcc:8
+FROM gcc:7
 
-COPY gStore /usr/src/gstore
+RUN mkdir /usr/src/gstore
+COPY . /usr/src/gstore
 WORKDIR /usr/src/gstore
 
 #解决java默认用的ansii编码问题,可选ENV CC="ccache gcc" CXX="ccache g++"? 因为默认配置文件没启勇ccache
