@@ -1,18 +1,18 @@
 #注:低版本gcc镜像可以省下一些空间,但是性能跟依赖未测试. 后续也可自行精简
 FROM gcc:8
 
-COPY . /usr/src/gstore/
-WORKDIR /usr/src/gstore
+COPY . /usr/src/mygstore
+WORKDIR /usr/src/mygstore
 
 #解决java默认用的ansii编码问题,可选ENV CC="ccache gcc" CXX="ccache g++"? 因为默认配置文件没启勇ccache
 ENV LANG C.UTF-8
-#文档所说的所有直接安装库都装了
+#文档所说的可选安装库都装了
 RUN apt-get update && apt-get install -y --no-install-recommends realpath \
-          ccache \
-          openjdk-8-jdk \
+         ccache \
+         openjdk-8-jdk \
          libreadline-dev \
          libboost-all-dev \
-        && rm -rf /var/lib/apt/lists/
+         && rm -rf /var/lib/apt/lists/
 
 #RUN java -version
 #容器启动时会自动执行make编译，RUN make现在有些问题。
