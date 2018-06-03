@@ -1,7 +1,7 @@
 #注:低版本gcc镜像可以省下一些空间,但是性能跟依赖未测试. 后续也可自行精简
 FROM gcc:8
 RUN mkdir /usr/src/mygcc
-COPY ./* /usr/src/mygcc
+COPY ./* /usr/src/mygcc/
 WORKDIR /usr/src/mygcc
 
 #解决java默认用的ansii编码问题,可选ENV CC="ccache gcc" CXX="ccache g++"? 因为默认配置文件没启勇ccache
