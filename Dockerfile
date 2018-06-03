@@ -16,5 +16,4 @@ ENV LANG C.UTF-8
 
 #容器启动时会自动执行make编译，RUN make现在有些问题。
 #后续测试脚本可以在这抽出来？或者添加自己需要的步骤（变动尽量步骤靠后)
-RUN make
-CMD ["bash"]
+CMD ["make"]
